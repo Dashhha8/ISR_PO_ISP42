@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище STOModelContainer" CdmEntityContainer="STOEntities1">
+    <EntitySetMapping Name="Avto">
+      <EntityTypeMapping TypeName="STOModel.Avto">
+        <MappingFragment StoreEntitySet="Avto">
+          <ScalarProperty Name="ID_Avto" ColumnName="ID_Avto" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="STOModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ID_Clients" ColumnName="ID_Clients" />
+          <ScalarProperty Name="Client_name" ColumnName="Client_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detail">
+      <EntityTypeMapping TypeName="STOModel.Detail">
+        <MappingFragment StoreEntitySet="Detail">
+          <ScalarProperty Name="ID_Detail" ColumnName="ID_Detail" />
+          <ScalarProperty Name="Name_Detail" ColumnName="Name_Detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaultTypes">
+      <EntityTypeMapping TypeName="STOModel.FaultTypes">
+        <MappingFragment StoreEntitySet="FaultTypes">
+          <ScalarProperty Name="fault_type_id" ColumnName="fault_type_id" />
+          <ScalarProperty Name="fault_type_name" ColumnName="fault_type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestStatus">
+      <EntityTypeMapping TypeName="STOModel.RequestStatus">
+        <MappingFragment StoreEntitySet="RequestStatus">
+          <ScalarProperty Name="ID_RequestStatus" ColumnName="ID_RequestStatus" />
+          <ScalarProperty Name="Status_name" ColumnName="Status_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_">
+      <EntityTypeMapping TypeName="STOModel.Role_">
+        <MappingFragment StoreEntitySet="Role_">
+          <ScalarProperty Name="id_Role_" ColumnName="id_Role_" />
+          <ScalarProperty Name="name_role" ColumnName="name_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STObase">
+      <EntityTypeMapping TypeName="STOModel.STObase">
+        <MappingFragment StoreEntitySet="STObase">
+          <ScalarProperty Name="request_id" ColumnName="request_id" />
+          <ScalarProperty Name="application_number" ColumnName="application_number" />
+          <ScalarProperty Name="request_date" ColumnName="request_date" />
+          <ScalarProperty Name="ID_Clients" ColumnName="ID_Clients" />
+          <ScalarProperty Name="ID_Avto" ColumnName="ID_Avto" />
+          <ScalarProperty Name="fault_type_id" ColumnName="fault_type_id" />
+          <ScalarProperty Name="ID_Detail" ColumnName="ID_Detail" />
+          <ScalarProperty Name="ID_RequestStatus" ColumnName="ID_RequestStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="STOModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID_Users" ColumnName="ID_Users" />
+          <ScalarProperty Name="Login_" ColumnName="Login_" />
+          <ScalarProperty Name="Password_" ColumnName="Password_" />
+          <ScalarProperty Name="id_Role_" ColumnName="id_Role_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

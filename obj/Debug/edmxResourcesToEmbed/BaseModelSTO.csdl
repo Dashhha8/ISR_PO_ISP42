@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Avto">
+    <Key>
+      <PropertyRef Name="ID_Avto" />
+    </Key>
+    <Property Name="ID_Avto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Year_issue" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="STObase" Relationship="Self.FK__STObase__ID_Avto__33D4B598" FromRole="Avto" ToRole="STObase" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Clients" />
+    </Key>
+    <Property Name="ID_Clients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STObase" Relationship="Self.FK__STObase__ID_Clie__32E0915F" FromRole="Clients" ToRole="STObase" />
+  </EntityType>
+  <EntityType Name="Detail">
+    <Key>
+      <PropertyRef Name="ID_Detail" />
+    </Key>
+    <Property Name="ID_Detail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Detail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="STObase" Relationship="Self.FK__STObase__ID_Deta__35BCFE0A" FromRole="Detail" ToRole="STObase" />
+  </EntityType>
+  <EntityType Name="FaultTypes">
+    <Key>
+      <PropertyRef Name="fault_type_id" />
+    </Key>
+    <Property Name="fault_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fault_type_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STObase" Relationship="Self.FK__STObase__fault_t__34C8D9D1" FromRole="FaultTypes" ToRole="STObase" />
+  </EntityType>
+  <EntityType Name="RequestStatus">
+    <Key>
+      <PropertyRef Name="ID_RequestStatus" />
+    </Key>
+    <Property Name="ID_RequestStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="STObase" Relationship="Self.FK__STObase__ID_Requ__36B12243" FromRole="RequestStatus" ToRole="STObase" />
+  </EntityType>
+  <EntityType Name="Role_">
+    <Key>
+      <PropertyRef Name="id_Role_" />
+    </Key>
+    <Property Name="id_Role_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name_role" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="STObase">
+    <Key>
+      <PropertyRef Name="request_id" />
+    </Key>
+    <Property Name="request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="application_number" Type="Int32" />
+    <Property Name="request_date" Type="DateTime" />
+    <Property Name="ID_Clients" Type="Int32" />
+    <Property Name="ID_Avto" Type="Int32" />
+    <Property Name="fault_type_id" Type="Int32" />
+    <Property Name="ID_Detail" Type="Int32" />
+    <Property Name="ID_RequestStatus" Type="Int32" />
+    <NavigationProperty Name="Avto" Relationship="Self.FK__STObase__ID_Avto__33D4B598" FromRole="STObase" ToRole="Avto" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__STObase__ID_Clie__32E0915F" FromRole="STObase" ToRole="Clients" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__STObase__ID_Deta__35BCFE0A" FromRole="STObase" ToRole="Detail" />
+    <NavigationProperty Name="FaultTypes" Relationship="Self.FK__STObase__fault_t__34C8D9D1" FromRole="STObase" ToRole="FaultTypes" />
+    <NavigationProperty Name="RequestStatus" Relationship="Self.FK__STObase__ID_Requ__36B12243" FromRole="STObase" ToRole="RequestStatus" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Login_" />
+    </Key>
+    <Property Name="ID_Users" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_Role_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__STObase__ID_Avto__33D4B598">
+    <End Role="Avto" Type="Self.Avto" Multiplicity="0..1" />
+    <End Role="STObase" Type="Self.STObase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avto">
+        <PropertyRef Name="ID_Avto" />
+      </Principal>
+      <Dependent Role="STObase">
+        <PropertyRef Name="ID_Avto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STObase__ID_Clie__32E0915F">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="STObase" Type="Self.STObase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_Clients" />
+      </Principal>
+      <Dependent Role="STObase">
+        <PropertyRef Name="ID_Clients" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STObase__ID_Deta__35BCFE0A">
+    <End Role="Detail" Type="Self.Detail" Multiplicity="0..1" />
+    <End Role="STObase" Type="Self.STObase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Detail">
+        <PropertyRef Name="ID_Detail" />
+      </Principal>
+      <Dependent Role="STObase">
+        <PropertyRef Name="ID_Detail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STObase__fault_t__34C8D9D1">
+    <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="0..1" />
+    <End Role="STObase" Type="Self.STObase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaultTypes">
+        <PropertyRef Name="fault_type_id" />
+      </Principal>
+      <Dependent Role="STObase">
+        <PropertyRef Name="fault_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STObase__ID_Requ__36B12243">
+    <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="0..1" />
+    <End Role="STObase" Type="Self.STObase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestStatus">
+        <PropertyRef Name="ID_RequestStatus" />
+      </Principal>
+      <Dependent Role="STObase">
+        <PropertyRef Name="ID_RequestStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="STOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Avto" EntityType="Self.Avto" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Detail" EntityType="Self.Detail" />
+    <EntitySet Name="FaultTypes" EntityType="Self.FaultTypes" />
+    <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" />
+    <EntitySet Name="Role_" EntityType="Self.Role_" />
+    <EntitySet Name="STObase" EntityType="Self.STObase" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__STObase__ID_Avto__33D4B598" Association="Self.FK__STObase__ID_Avto__33D4B598">
+      <End Role="Avto" EntitySet="Avto" />
+      <End Role="STObase" EntitySet="STObase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STObase__ID_Clie__32E0915F" Association="Self.FK__STObase__ID_Clie__32E0915F">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="STObase" EntitySet="STObase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STObase__ID_Deta__35BCFE0A" Association="Self.FK__STObase__ID_Deta__35BCFE0A">
+      <End Role="Detail" EntitySet="Detail" />
+      <End Role="STObase" EntitySet="STObase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STObase__fault_t__34C8D9D1" Association="Self.FK__STObase__fault_t__34C8D9D1">
+      <End Role="FaultTypes" EntitySet="FaultTypes" />
+      <End Role="STObase" EntitySet="STObase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STObase__ID_Requ__36B12243" Association="Self.FK__STObase__ID_Requ__36B12243">
+      <End Role="RequestStatus" EntitySet="RequestStatus" />
+      <End Role="STObase" EntitySet="STObase" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

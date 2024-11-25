@@ -1,0 +1,51 @@
+﻿<Window x:Class="avtoServ.RefreshWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:avtoServ"
+        mc:Ignorable="d"
+        Title="Редактирование заявки" Height="250" Width="300"  ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,2,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="lada.jpg"/>
+        </Grid.Background>
+
+        <TextBlock Text=" Клиент" HorizontalAlignment="Center" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.38,3.771" Margin="12,20,135,0" Height="23" FontSize="14" Foreground="#FF303355">
+            <TextBlock.Background>
+                <SolidColorBrush Color="White" Opacity="0.75"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBox x:Name="CliTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="160,20,10,0" Height="23"/>
+
+        <TextBlock Text=" Номер автомобиля" HorizontalAlignment="Center" VerticalAlignment="Top" Width="143" Margin="12,80,135,0" Height="23" FontSize="14" Foreground="#FF303355" RenderTransformOrigin="0.476,2.018">
+            <TextBlock.Background>
+                <SolidColorBrush Color="White" Opacity="0.75"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="160,80,10,0" Height="23"/>
+        
+        <TextBlock Text=" Статус" HorizontalAlignment="Center" VerticalAlignment="Top" Width="143" Margin="12,140,135,0" Height="23" FontSize="14" Foreground="#FF303355">
+            <TextBlock.Background>
+                <SolidColorBrush Color="White" Opacity="0.75"/>
+            </TextBlock.Background>
+        </TextBlock>
+       <ComboBox x:Name="StatusComboBox" DisplayMemberPath="Status_name" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="160,140,10,0" Height="23" />
+        
+        <TextBlock Text=" Автомобиль" HorizontalAlignment="Center" VerticalAlignment="Top" Width="143" Margin="12,50,135,0" Height="23" FontSize="14" Foreground="#FF303355">
+            <TextBlock.Background>
+                <SolidColorBrush Color="White" Opacity="0.75"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <ComboBox x:Name="AvtComboBox" DisplayMemberPath="Brand" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="160,50,10,0" Height="23"/>
+       
+        <TextBlock Text=" Тип неисправности" HorizontalAlignment="Center" VerticalAlignment="Top" Width="143" Margin="12,110,135,0" Height="23" FontSize="14" Foreground="#FF303355">
+            <TextBlock.Background>
+                <SolidColorBrush Color="White" Opacity="0.75"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <ComboBox x:Name="FaultTypeComboBox" DisplayMemberPath="fault_type_name" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="160,110,10,0" Height="23"/>
+        
+        <Button Content="Обновить" Click="UpdateButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Width="105" Margin="93,180,93,0" Height="28" Background="#FFC8D5DE"/>
+    </Grid>
+</Window>
